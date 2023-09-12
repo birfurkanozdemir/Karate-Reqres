@@ -10,6 +10,7 @@ Feature: Users Transactions
     Given url urlBase + usersPath + '?page=2'
     When method GET
     Then status 200
+    * print response
 
 
   Scenario: Single User
@@ -17,6 +18,7 @@ Feature: Users Transactions
     Given url urlBase + usersPath + '/2'
     When method GET
     Then status 200
+    * print response
 
 
   Scenario: Single User Not Found
@@ -24,6 +26,7 @@ Feature: Users Transactions
     Given url urlBase + usersPath + '/23'
     When method GET
     Then status 404
+    * print response
 
 
   Scenario: List <Resource>
@@ -31,6 +34,7 @@ Feature: Users Transactions
     Given url urlBase + unknownPath
     When method GET
     Then status 200
+    * print response
 
 
   Scenario: Single <Resource>
@@ -38,6 +42,7 @@ Feature: Users Transactions
     Given url urlBase + unknownPath + '/2'
     When method GET
     Then status 200
+    * print response
 
 
   Scenario: Single <Resource> Not Found
@@ -45,6 +50,7 @@ Feature: Users Transactions
     Given url urlBase + unknownPath + '/23'
     When method GET
     Then status 404
+    * print response
 
 
   Scenario: Delayed Response
@@ -52,3 +58,4 @@ Feature: Users Transactions
     Given url urlBase + usersPath + '?delay=3'
     When method GET
     Then status 200
+    * print response
