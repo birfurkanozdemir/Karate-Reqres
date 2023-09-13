@@ -1,4 +1,4 @@
-Feature: Update User Transactions
+Feature: User Update Transactions
 
   Background:
     * def urlBase = 'https://reqres.in/'
