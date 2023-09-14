@@ -20,3 +20,17 @@ Feature: User Register Transactions
     When method POST
     Then status 400
     * print response
+
+
+  Scenario Outline: Multiple Parameters for Register Process
+
+    Given url urlBase + registerPath
+    And request { "email": "<emailInfo>", "password": "<passwordInfo>" }
+    When method POST
+    Then status 200
+
+    Examples:
+      | emailInfo          | passwordInfo |
+      | eve.holt@reqres.in | pistol       |
+      | demo@gmail.com     | demo123      |
+      | sydney@fife        |              |
