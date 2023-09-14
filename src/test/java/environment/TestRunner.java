@@ -1,4 +1,4 @@
-package Reqres;
+package environment;
 
 import org.junit.Test;
 import com.intuit.karate.Results;
