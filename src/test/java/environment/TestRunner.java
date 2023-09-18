@@ -9,7 +9,7 @@ public class TestRunner {
     @Test
     public void testParallel() {
 
-        Results resultsParameter = Karate.run("src/test/java/feature").parallel(4);
+        Results resultsParameter = Karate.run("src/test/resources/feature").parallel(4);
         assertTrue(resultsParameter.getErrorMessages(), resultsParameter.getFailCount() == 0);
     }
 }

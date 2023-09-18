@@ -27,10 +27,11 @@ Feature: User Register Transactions
     Given url urlBase + registerPath
     And request { "email": "<emailInfo>", "password": "<passwordInfo>" }
     When method POST
-    Then status 200
+    Then status <responseStatus>
+    * print response
 
     Examples:
-      | emailInfo          | passwordInfo |
-      | eve.holt@reqres.in | pistol       |
-      | demo@gmail.com     | demo123      |
-      | sydney@fife        |              |
+      | emailInfo          | passwordInfo | responseStatus |
+      | eve.holt@reqres.in | pistol       | 200            |
+      | demo@gmail.com     | demo123      | 400            |
+      | sydney@fife        |              | 400            |

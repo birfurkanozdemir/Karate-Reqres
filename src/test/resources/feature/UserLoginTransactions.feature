@@ -20,3 +20,18 @@ Feature: User Login Transactions
     When method POST
     Then status 400
     * print response
+
+
+  Scenario Outline: Multiple Parameters for Login Process
+
+    Given url urlBase + loginPath
+    And request { "email": "<emailInfo>", "password": "<passwordInfo>" }
+    When method POST
+    Then status <responseStatus>
+    * print response
+
+    Examples:
+      | emailInfo          | passwordInfo | responseStatus |
+      | eve.holt@reqres.in | cityslicka   | 200            |
+      | demo@gmail.com     | demo123      | 400            |
+      | peter@klaven       |              | 400            |
