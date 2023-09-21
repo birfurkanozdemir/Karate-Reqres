@@ -1,12 +1,12 @@
 Feature: User Register Transactions
 
   Background:
-    * def urlBase = 'https://reqres.in/'
+    #* def urlBase = 'https://reqres.in/'
     * def registerPath = '/api/register'
 
   Scenario: Register - Successful
 
-    Given url urlBase + registerPath
+    Given url baseUrl + registerPath
     And request { "email": "eve.holt@reqres.in", "password": "pistol" }
     When method POST
     Then status 200
@@ -15,7 +15,7 @@ Feature: User Register Transactions
 
   Scenario: Register - Unsuccessful
 
-    Given url urlBase + registerPath
+    Given url baseUrl + registerPath
     And request { "email": "sydney@fife" }
     When method POST
     Then status 400
@@ -24,7 +24,7 @@ Feature: User Register Transactions
 
   Scenario Outline: Multiple Parameters for Register Process
 
-    Given url urlBase + registerPath
+    Given url baseUrl + registerPath
     And request { "email": "<emailInfo>", "password": "<passwordInfo>" }
     When method POST
     Then status <responseStatus>

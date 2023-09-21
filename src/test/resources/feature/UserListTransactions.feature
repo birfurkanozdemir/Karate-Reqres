@@ -1,13 +1,13 @@
 Feature: User List Transactions
 
   Background:
-    * def urlBase = 'https://reqres.in/'
+    #* def urlBase = 'https://reqres.in/'
     * def usersPath = '/api/users'
     * def unknownPath = '/api/unknown'
 
   Scenario: List Users
 
-    Given url urlBase + usersPath + '?page=2'
+    Given url baseUrl + usersPath + '?page=2'
     When method GET
     Then status 200
 
@@ -20,7 +20,7 @@ Feature: User List Transactions
 
   Scenario: Single User Match Service Response Data
 
-    Given url urlBase + usersPath + '/2'
+    Given url baseUrl + usersPath + '/2'
     When method GET
     Then status 200
 
@@ -34,7 +34,7 @@ Feature: User List Transactions
 
   Scenario: Single User's Response Data Transactions
 
-    Given url urlBase + usersPath + '/3'
+    Given url baseUrl + usersPath + '/3'
     When method GET
     Then status 200
 
@@ -47,7 +47,7 @@ Feature: User List Transactions
 
   Scenario: Single User Not Found
 
-    Given url urlBase + usersPath + '/23'
+    Given url baseUrl + usersPath + '/23'
     When method GET
     Then status 404
     * print response
@@ -55,7 +55,7 @@ Feature: User List Transactions
 
   Scenario: List <Resource>
 
-    Given url urlBase + unknownPath
+    Given url baseUrl + unknownPath
     When method GET
     Then status 200
     * print response
@@ -63,7 +63,7 @@ Feature: User List Transactions
 
   Scenario: Single <Resource>
 
-    Given url urlBase + unknownPath + '/2'
+    Given url baseUrl + unknownPath + '/2'
     When method GET
     Then status 200
     * print response
@@ -71,7 +71,7 @@ Feature: User List Transactions
 
   Scenario: Single <Resource> Not Found
 
-    Given url urlBase + unknownPath + '/23'
+    Given url baseUrl + unknownPath + '/23'
     When method GET
     Then status 404
     * print response
@@ -79,7 +79,7 @@ Feature: User List Transactions
 
   Scenario: Delayed Response
 
-    Given url urlBase + usersPath + '?delay=3'
+    Given url baseUrl + usersPath + '?delay=3'
     When method GET
     Then status 200
     * print response

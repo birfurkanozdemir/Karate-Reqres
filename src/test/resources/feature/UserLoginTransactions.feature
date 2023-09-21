@@ -1,12 +1,12 @@
 Feature: User Login Transactions
 
   Background:
-    * def urlBase = 'https://reqres.in/'
+    #* def urlBase = 'https://reqres.in/'
     * def loginPath = '/api/login'
 
   Scenario: Login Successful
 
-    Given url urlBase + loginPath
+    Given url baseUrl + loginPath
     And request { "email": "eve.holt@reqres.in", "password": "cityslicka" }
     When method POST
     Then status 200
@@ -15,7 +15,7 @@ Feature: User Login Transactions
 
   Scenario: Login Unsuccessful
 
-    Given url urlBase + loginPath
+    Given url baseUrl + loginPath
     And request { "email": "peter@klaven" }
     When method POST
     Then status 400
@@ -24,7 +24,7 @@ Feature: User Login Transactions
 
   Scenario Outline: Multiple Parameters for Login Process
 
-    Given url urlBase + loginPath
+    Given url baseUrl + loginPath
     And request { "email": "<emailInfo>", "password": "<passwordInfo>" }
     When method POST
     Then status <responseStatus>
